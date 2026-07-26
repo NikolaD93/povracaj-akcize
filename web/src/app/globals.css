@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0e2a47;
+  --color-navy-2: #143a5f;
+  --color-navy-end: #0b2138;
+  --color-accent: #16a34a;
+  --color-accent-dark: #12833c;
+  --color-accent-light: #4ade80;
+  --color-ink: #1c2b3a;
+  --color-muted: #5b6b7b;
+  --color-line: #e3e9ef;
+  --color-bg: #f5f7fa;
+  --color-amber: #f59e0b;
+  --color-warn-bg: #fff8ec;
+  --color-warn-border: #f4d999;
+  --color-warn-title: #a15c00;
+  --color-warn-text: #7a5300;
+  --color-footer-text: #b8c7d6;
+  --color-footer-muted: #8ba0b4;
+
+  --font-sans: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+
+  --shadow-card: 0 10px 30px rgba(14, 42, 71, 0.08);
+
+  /* Prelomne tačke tačno po handoff PDF-u (sekcija 8) */
+  --breakpoint-stack: 900px;
+  --breakpoint-nav: 1040px;
+}
+
+/* Bez @layer, ova pravila bi imala prioritet NAD Tailwind utility klasama
+   (npr. text-white), bez obzira na specifičnost — Tailwind v4 slojevi (base/
+   utilities) gube od bilo kog CSS-a van sloja. @layer base ih vraća u
+   normalan cascade, tako da text-white i slične utility klase i dalje rade. */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    font-size: 17px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-navy);
+    line-height: 1.2;
+    font-weight: 800;
+  }
+}
+
+.faq-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-icon::before {
+  content: "+";
+  font-size: 1.5rem;
+  color: var(--color-accent);
+}
+
+.faq-details[open] .faq-icon::before {
+  content: "\2013";
+}
