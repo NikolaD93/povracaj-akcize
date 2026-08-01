@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/blog/" },
 };
 
+// Blog content is edited directly in Sanity. Render on request so publish/delete
+// actions are visible immediately without a frontend rebuild.
+export const dynamic = "force-dynamic";
+
 const FAQ_ITEMS = [
   {
     q: "Koliko iznosi povraćaj po litru?",

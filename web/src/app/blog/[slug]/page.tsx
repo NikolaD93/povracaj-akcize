@@ -4,15 +4,13 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { PortableText } from 'next-sanity'
 import { Container, CtaBand } from '@/components/ui'
-import { getAllPosts, getPostBySlug } from '@/lib/blog/posts'
+import { getPostBySlug } from '@/lib/blog/posts'
 import { isPlainTextBody } from '@/lib/blog/types'
 
 type Props = { params: Promise<{ slug: string }> }
 
-export async function generateStaticParams() {
-  const posts = await getAllPosts()
-  return posts.map((post) => ({ slug: post.slug }))
-}
+// New, updated and deleted Sanity posts must be reflected without a rebuild.
+export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params

@@ -1,8 +1,9 @@
 import { sanityClient } from "@/sanity/client";
 import { urlForImage } from "@/sanity/image";
+import { defineQuery } from "next-sanity";
 import { CATEGORIES } from "./categories";
 import { FALLBACK_POSTS } from "./fallback-posts";
-import type { BlogPost, BlogPostSummary, FallbackBlogPost } from "./types";
+import type { BlogPost, BlogPostSummary } from "./types";
 
 type SanityImage = {
   asset?: { _ref: string; _type: string };
@@ -35,14 +36,31 @@ type RawPost = RawSummary & {
   seoDescription?: string;
 };
 
-function isPublishableSummary(post: RawSummary) {
-  return (
-    post.slug?.trim().length >= 8 &&
-    post.title?.trim().length >= 12 &&
-    post.excerpt?.trim().length >= 30 &&
-    Boolean(post.publishedAt)
-  );
-}
+const POSTS_QUERY = defineQuery(`
+  *[_type == "post" && defined(slug.current)]
+  | order(publishedAt desc, _updatedAt desc) {
+    "slug": slug.current,
+    title,
+    category,
+    excerpt,
+    publishedAt,
+    coverImage { asset, alt, hotspot, crop }
+  }
+`);
+
+const POST_QUERY = defineQuery(`
+  *[_type == "post" && slug.current == $slug][0] {
+    "slug": slug.current,
+    title,
+    category,
+    excerpt,
+    publishedAt,
+    body,
+    coverImage { asset, alt, hotspot, crop },
+    seoTitle,
+    seoDescription
+  }
+`);
 
 function presentSummary(post: RawSummary): BlogPostSummary {
   const meta = categoryMeta(post.category);
@@ -60,7 +78,7 @@ function presentSummary(post: RawSummary): BlogPostSummary {
   };
 }
 
-function presentFallbackPost(post: FallbackBlogPost): BlogPost {
+function presentFallbackPost(post: (typeof FALLBACK_POSTS)[number]): BlogPost {
   const meta = categoryMeta(post.category);
   return {
     ...post,
@@ -80,25 +98,13 @@ export async function getAllPosts(): Promise<BlogPostSummary[]> {
     return fallbackSummaries();
   }
 
-  const posts = await sanityClient.fetch<RawSummary[]>(
-    `*[_type == "post" && defined(slug.current) && defined(title) && defined(excerpt) && defined(publishedAt)] | order(publishedAt desc) {
-      "slug": slug.current,
-      title,
-      category,
-      excerpt,
-      publishedAt,
-      coverImage { asset, alt, hotspot, crop }
-    }`
+  const posts = await sanityClient.withConfig({ useCdn: false }).fetch<RawSummary[]>(
+    POSTS_QUERY,
+    {},
+    { cache: "no-store", perspective: "published" }
   );
 
-  const livePosts = posts.filter(isPublishableSummary).map(presentSummary);
-  if (livePosts.length >= 2) return livePosts;
-
-  const liveSlugs = new Set(livePosts.map((post) => post.slug));
-  return [
-    ...livePosts,
-    ...fallbackSummaries().filter((post) => !liveSlugs.has(post.slug)),
-  ].slice(0, 2);
+  return posts.map(presentSummary);
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
@@ -107,29 +113,13 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     return fallbackPost ? presentFallbackPost(fallbackPost) : null;
   }
 
-  const post = await sanityClient.fetch<RawPost | null>(
-    `*[_type == "post" && slug.current == $slug][0]{
-      "slug": slug.current,
-      title,
-      category,
-      excerpt,
-      publishedAt,
-      body,
-      coverImage { asset, alt, hotspot, crop },
-      seoTitle,
-      seoDescription
-    }`,
-    { slug }
+  const post = await sanityClient.withConfig({ useCdn: false }).fetch<RawPost | null>(
+    POST_QUERY,
+    { slug },
+    { cache: "no-store", perspective: "published" }
   );
 
-  if (!post) {
-    const fallbackPost = FALLBACK_POSTS.find((entry) => entry.slug === slug);
-    return fallbackPost ? presentFallbackPost(fallbackPost) : null;
-  }
-
-  if (!isPublishableSummary(post) || !Array.isArray(post.body) || post.body.length === 0) {
-    return null;
-  }
+  if (!post) return null;
 
   const meta = categoryMeta(post.category);
 

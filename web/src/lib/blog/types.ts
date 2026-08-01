@@ -16,9 +16,6 @@ export type BlogPost = BlogPostSummary & {
   seoDescription?: string;
 };
 
-export type FallbackBlogPost = Omit<BlogPost, "coverImageUrl" | "coverImageAlt"> &
-  Partial<Pick<BlogPost, "coverImageUrl" | "coverImageAlt">>;
-
 export function isPlainTextBody(body: unknown[]): body is string[] {
   return body.length === 0 || typeof body[0] === "string";
 }

@@ -1,4 +1,7 @@
-import type { FallbackBlogPost } from "./types";
+import type { BlogPost } from "./types";
+
+type FallbackBlogPost = Omit<BlogPost, "coverImageUrl" | "coverImageAlt"> &
+  Partial<Pick<BlogPost, "coverImageUrl" | "coverImageAlt">>;
 
 // Sadržaj prikazan dok klijent ne poveže Sanity nalog (vidi tech-stack.md) i doda prave
 // postove kroz Sanity Studio (/studio). Čim je NEXT_PUBLIC_SANITY_PROJECT_ID podešen,
