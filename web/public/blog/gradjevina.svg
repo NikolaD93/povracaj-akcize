@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title description">
+  <title id="title">Građevinski transport</title>
+  <desc id="description">Brend ilustracija kipera i gradilišta.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0e2a47"/><stop offset="1" stop-color="#143a5f"/></linearGradient></defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1035" cy="112" r="240" fill="#f59e0b" opacity=".16"/>
+  <path d="M0 536 245 420l210 116 235-150 260 150 250-118v257H0Z" fill="#12833c"/>
+  <g transform="translate(310 300)">
+    <path d="m0 34 330 28-48 170H48Z" fill="#f59e0b"/>
+    <path d="M330 112h130l86 78v42H282Z" fill="#e3e9ef"/>
+    <path d="M370 128h70l51 46H370Z" fill="#143a5f"/>
+    <circle cx="126" cy="245" r="48" fill="#0b2138"/><circle cx="126" cy="245" r="20" fill="#b8c7d6"/>
+    <circle cx="430" cy="245" r="48" fill="#0b2138"/><circle cx="430" cy="245" r="20" fill="#b8c7d6"/>
+  </g>
+  <text x="72" y="105" fill="#4ade80" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="3">GRAĐEVINSKE FIRME</text>
+  <text x="72" y="162" fill="#fff" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="800">Kiperi koji ispunjavaju uslove</text>
+</svg>

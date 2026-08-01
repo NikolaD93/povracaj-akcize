@@ -15,8 +15,10 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-[linear-gradient(160deg,#0e2a47_0%,#143a5f_60%,#0b2138_100%)] py-[70px] pb-20 text-white">
         <div className="pointer-events-none absolute -right-[120px] -top-[120px] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.35),transparent_65%)]" />
         <Container className="relative">
-          <div className="mb-6 flex max-w-max items-center gap-2.5 rounded-xl border border-white/16 bg-white/8 px-[18px] py-3.5">
-            <span className="text-[1.8rem] font-extrabold text-accent-light">Od 14 do 37 din</span>
+          <div className="mb-6 flex max-w-max flex-col items-start gap-1 rounded-xl border border-white/16 bg-white/8 px-[18px] py-3.5 md:flex-row md:items-center md:gap-2.5">
+            <span className="whitespace-nowrap text-[clamp(1.35rem,6vw,1.8rem)] font-extrabold text-accent-light">
+              Od 14 do 37 din
+            </span>
             <span>povraćaja po svakom litru dizela — do 5 godina unazad</span>
           </div>
           <h1 className="max-w-[820px] text-[clamp(2rem,4.5vw,3.3rem)] font-extrabold text-white">
@@ -24,7 +26,7 @@ export default function HomePage() {
           </h1>
           <p className="my-5 max-w-[720px] text-[1.15rem] text-[#c9d6e4]">
             Prevoznici, autobuske kompanije i firme sa sopstvenim voznim parkom mogu da povrate
-            značajan deo plaćene akcize na dizel. Većina firmi to nikada ne iskoristi — jer nema ko
+            značajan deo plaćene akcize na dizel. Većina firmi to nikada ne iskoristi, jer nema ko
             da završi postupak. Mi to radimo umesto vas.
           </p>
           <div className="flex flex-wrap items-center gap-3.5">
@@ -82,7 +84,7 @@ export default function HomePage() {
             <IconBadge>📄</IconBadge>
             <h3>Dokumentacijom već raspolažete</h3>
             <p className="text-muted">
-              Računi, fiskalni računi, CMR, tovarni listovi, licence — mi ih sređujemo u ispravan
+              Računi, fiskalni računi, CMR, tovarni listovi, licence a mi ih sređujemo u ispravan
               REF-T.
             </p>
           </Card>
@@ -184,7 +186,7 @@ export default function HomePage() {
 
         <CtaBand
           title="Ne znate da li imate pravo? Saznajte besplatno."
-          text="Pošaljite osnovne podatke o firmi i voznom parku. Za 2 minuta vam kažemo procenu povraćaja — bez obaveze."
+          text="Pošaljite osnovne podatke o firmi i voznom parku. Za 2 minuta vam kažemo procenu povraćaja, bez obaveze."
           buttonLabel="Izračunaj povraćaj"
           buttonHref="/kalkulator/"
           className="mb-14"

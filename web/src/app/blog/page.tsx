@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Container, Grid, SectionHead, PostCard, Faq } from "@/components/ui";
+import { Container, Grid, SectionHead, PostCard, Faq, CtaBand } from "@/components/ui";
 import { getAllPosts } from "@/lib/blog/posts";
 
 export const metadata: Metadata = {
@@ -49,7 +49,8 @@ export default async function BlogPage() {
           <PostCard
             key={post.slug}
             href={`/blog/${post.slug}/`}
-            emoji={post.emoji}
+            imageUrl={post.coverImageUrl}
+            imageAlt={post.coverImageAlt}
             category={post.category}
             title={post.title}
             excerpt={post.excerpt}
@@ -61,6 +62,14 @@ export default async function BlogPage() {
         <h2>Česta pitanja</h2>
       </div>
       <Faq items={FAQ_ITEMS} />
+
+      <CtaBand
+        title="Želite proveru za svoju firmu?"
+        text="Pošaljite podatke o firmi i proverićemo pravo i pokrenuti povraćaj."
+        buttonLabel="Proveri moje pravo"
+        buttonHref="/kontakt/"
+        className="mb-2 mt-10"
+      />
     </Container>
   );
 }

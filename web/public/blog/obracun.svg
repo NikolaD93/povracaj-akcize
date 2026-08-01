@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title description">
+  <title id="title">Obračun povraćaja akcize</title>
+  <desc id="description">Brend ilustracija kalkulatora i rastućeg iznosa povraćaja.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b2138"/>
+      <stop offset="1" stop-color="#143a5f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1045" cy="108" r="245" fill="#16a34a" opacity=".16"/>
+  <g transform="translate(102 188)">
+    <rect width="332" height="390" rx="30" fill="#f5f7fa"/>
+    <rect x="34" y="34" width="264" height="82" rx="14" fill="#0e2a47"/>
+    <text x="278" y="91" text-anchor="end" fill="#4ade80" font-family="Segoe UI, Arial, sans-serif" font-size="40" font-weight="800">1.500.000</text>
+    <g fill="#e3e9ef">
+      <rect x="34" y="144" width="70" height="54" rx="10"/><rect x="131" y="144" width="70" height="54" rx="10"/><rect x="228" y="144" width="70" height="54" rx="10"/>
+      <rect x="34" y="220" width="70" height="54" rx="10"/><rect x="131" y="220" width="70" height="54" rx="10"/><rect x="228" y="220" width="70" height="54" rx="10"/>
+      <rect x="34" y="296" width="70" height="54" rx="10"/><rect x="131" y="296" width="70" height="54" rx="10"/>
+    </g>
+    <rect x="228" y="296" width="70" height="54" rx="10" fill="#16a34a"/>
+  </g>
+  <g transform="translate(530 195)">
+    <path d="M0 340V65" stroke="#8ba0b4" stroke-width="6"/>
+    <path d="M0 340h560" stroke="#8ba0b4" stroke-width="6"/>
+    <rect x="65" y="250" width="82" height="90" rx="8" fill="#12833c"/>
+    <rect x="200" y="190" width="82" height="150" rx="8" fill="#16a34a"/>
+    <rect x="335" y="115" width="82" height="225" rx="8" fill="#4ade80"/>
+    <path d="M75 202 232 132l135-75 130-24" fill="none" stroke="#f59e0b" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="m478 15 37 13-24 32" fill="none" stroke="#f59e0b" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="72" y="92" fill="#4ade80" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="3">KONKRETAN OBRAČUN</text>
+  <text x="72" y="147" fill="#fff" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="800">Svaki litar ima vrednost</text>
+</svg>

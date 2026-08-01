@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ReactNode } from "react";
 
 export function Container({
@@ -242,33 +243,43 @@ export function Steps({
 
 export function PostCard({
   href,
-  emoji,
+  imageUrl,
+  imageAlt,
   category,
   title,
   excerpt,
 }: {
   href: string;
-  emoji: string;
+  imageUrl: string;
+  imageAlt: string;
   category: string;
   title: string;
   excerpt: string;
 }) {
   return (
-    <div className="flex flex-col overflow-hidden rounded-[14px] border border-line bg-white shadow-card">
-      <div className="grid h-[150px] place-items-center bg-[linear-gradient(135deg,#0e2a47,#16a34a)] text-[2.4rem] text-white">
-        {emoji}
-      </div>
+    <Link
+      href={href}
+      aria-label={`Pročitaj: ${title}`}
+      className="group flex cursor-pointer flex-col overflow-hidden rounded-[14px] border border-line bg-white text-ink shadow-card no-underline transition duration-200 hover:-translate-y-1 hover:shadow-[0_16px_38px_rgba(14,42,71,0.16)] focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-accent"
+    >
+      <Image
+        src={imageUrl}
+        alt={imageAlt}
+        width={800}
+        height={450}
+        className="h-[170px] w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+      />
       <div className="flex flex-1 flex-col p-[22px]">
         <span className="text-[0.78rem] font-bold uppercase tracking-[0.05em] text-accent-dark">
           {category}
         </span>
         <h3 className="my-2">{title}</h3>
         <p className="text-[0.95rem] text-muted">{excerpt}</p>
-        <Link href={href} className="mt-auto pt-3 font-bold text-accent-dark no-underline">
+        <span className="mt-auto pt-3 font-bold text-accent-dark">
           Pročitaj →
-        </Link>
+        </span>
       </div>
-    </div>
+    </Link>
   );
 }
 

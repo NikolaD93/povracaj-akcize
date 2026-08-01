@@ -98,7 +98,7 @@ export default function KoImaPravoPage() {
 
       <CtaBand
         title="Niste sigurni u koju grupu spadate?"
-        text="Pošaljite delatnost i broj vozila — javimo vam da li imate pravo i koliko biste otprilike vratili."
+        text="Pošaljite delatnost i broj vozila, javimo vam da li imate pravo i koliko biste otprilike vratili."
         buttonLabel="Proveri moje pravo"
         buttonHref="/kontakt/"
       />

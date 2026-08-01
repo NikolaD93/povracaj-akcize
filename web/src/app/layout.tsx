@@ -12,6 +12,36 @@ export const metadata: Metadata = {
   },
   description:
     "Prevoznici, autobuske i građevinske firme sa sopstvenim voznim parkom mogu da povrate akcizu na dizel — do 5 godina unazad. Proverite pravo za 2 minuta.",
+  manifest: "/site.webmanifest?v=2",
+  icons: {
+    icon: [
+      { url: "/favicon.ico?v=2", sizes: "32x32" },
+      { url: "/favicon-16x16.png?v=2", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-32x32.png?v=2", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png?v=2", sizes: "180x180", type: "image/png" }],
+  },
+  openGraph: {
+    type: "website",
+    locale: "sr_RS",
+    url: SITE.url,
+    siteName: SITE.name,
+    title: "Povraćaj akcize na gorivo | Vratite novac koji ste platili državi",
+    description:
+      "Povratite deo akcize na dizel, uz stručnu proveru prava i vođenje celog REF-T postupka.",
+    images: [
+      {
+        url: "/og-image.png?v=2",
+        width: 1200,
+        height: 630,
+        alt: "Povraćaj akcize na dizel za prevoznike u Srbiji",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-image.png?v=2"],
+  },
 };
 
 const localBusinessJsonLd = {

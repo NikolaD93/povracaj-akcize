@@ -22,7 +22,7 @@ export const postType = defineType({
       name: "title",
       title: "Naslov",
       type: "string",
-      validation: (rule) => rule.required(),
+      validation: (rule) => rule.required().min(12),
     }),
     defineField({
       name: "slug",
@@ -45,13 +45,22 @@ export const postType = defineType({
       title: "Kratak opis (za listing karticu)",
       type: "text",
       rows: 3,
-      validation: (rule) => rule.required().max(220),
+      validation: (rule) => rule.required().min(30).max(220),
     }),
     defineField({
       name: "coverImage",
-      title: "Naslovna slika (opciono)",
+      title: "Naslovna slika",
       type: "image",
       options: { hotspot: true },
+      fields: [
+        defineField({
+          name: "alt",
+          title: "Alternativni tekst",
+          type: "string",
+          validation: (rule) => rule.required().warning("Alt tekst je važan za SEO."),
+        }),
+      ],
+      validation: (rule) => rule.required().warning("Dodajte sliku za blog karticu."),
     }),
     defineField({
       name: "body",
@@ -65,6 +74,7 @@ export const postType = defineType({
       title: "Datum objave",
       type: "datetime",
       initialValue: () => new Date().toISOString(),
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: "seoTitle",

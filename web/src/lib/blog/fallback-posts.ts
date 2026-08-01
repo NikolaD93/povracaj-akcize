@@ -1,9 +1,9 @@
-import type { BlogPost } from "./types";
+import type { FallbackBlogPost } from "./types";
 
 // Sadržaj prikazan dok klijent ne poveže Sanity nalog (vidi tech-stack.md) i doda prave
 // postove kroz Sanity Studio (/studio). Čim je NEXT_PUBLIC_SANITY_PROJECT_ID podešen,
 // `getAllPosts`/`getPostBySlug` (src/lib/blog/posts.ts) automatski prelaze na Sanity podatke.
-export const FALLBACK_POSTS: BlogPost[] = [
+export const FALLBACK_POSTS: FallbackBlogPost[] = [
   {
     slug: "gradjevinska-firma-kiperi-povracaj-akcize",
     title: "Da li građevinska firma sa kiperima ima pravo na povraćaj akcize?",

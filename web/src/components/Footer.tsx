@@ -14,7 +14,7 @@ export function Footer() {
           </div>
           <p className="text-[0.92rem] text-footer-muted">
             Refakcija akcize na dizel gorivo za prevoznike, autobuske i građevinske firme sa
-            sopstvenim voznim parkom. Vodimo ceo postupak umesto vas — na teritoriji cele Srbije.
+            sopstvenim voznim parkom. Vodimo ceo postupak umesto vas na teritoriji cele Srbije.
           </p>
         </div>
         <div>

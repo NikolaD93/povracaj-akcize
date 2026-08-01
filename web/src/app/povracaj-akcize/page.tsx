@@ -56,7 +56,7 @@ export default function PovracajAkcizePage() {
 
       <Card className="mt-6">
         <h2>Zašto većina firmi ovo ne koristi?</h2>
-        <p className="mt-2 text-muted">Ne zato što nemaju pravo — nego zato što:</p>
+        <p className="mt-2 text-muted">Ne zato što nemaju pravo, nego zato što:</p>
         <div className="mt-3.5">
           <Pill>Ne znaju da pravo postoji</Pill>
           <Pill>Nemaju osobu koja poznaje proceduru</Pill>
@@ -65,7 +65,7 @@ export default function PovracajAkcizePage() {
           <Pill>Kvartalni rokovi se propuste</Pill>
         </div>
         <p className="mt-4 text-muted">
-          Upravo tu ulazimo mi — preuzimamo ceo postupak, od provere prava do isplate.
+          Upravo tu ulazimo mi i preuzimamo ceo postupak, od provere prava do isplate.
         </p>
         <p className="mt-4">
           <Button href="/postupak/">Pogledaj kako teče postupak →</Button>

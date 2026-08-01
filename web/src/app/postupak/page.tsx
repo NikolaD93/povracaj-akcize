@@ -41,7 +41,7 @@ export default function PostupakPage() {
       <SectionHead
         eyebrow="Postupak"
         as="h1"
-        title="Kako teče povraćaj — korak po korak"
+        title="Kako teče povraćaj - korak po korak"
         lead="Zahtev se podnosi elektronski na obrascu REF-T preko Portala Poreske uprave. Evo kako izgleda kada mi vodimo ceo proces umesto vas."
       />
 
@@ -50,7 +50,7 @@ export default function PostupakPage() {
       <Grid cols={3} className="mt-6">
         <Card className="text-center">
           <div className="text-[2rem] font-extrabold text-accent-dark">20 dana</div>
-          <p className="text-muted">po isteku kvartala — najraniji rok za podnošenje</p>
+          <p className="text-muted">po isteku kvartal je najraniji rok za podnošenje</p>
         </Card>
         <Card className="text-center">
           <div className="text-[2rem] font-extrabold text-accent-dark">30 dana</div>
@@ -64,7 +64,7 @@ export default function PostupakPage() {
 
       <CtaBand
         title="Preuzmemo ceo postupak umesto vas"
-        text="Vi šaljete račune jednom u kvartalu. Sve ostalo — obračun, obrazac, podnošenje i praćenje — radimo mi."
+        text="Vi šaljete račune jednom u kvartalu. Sve ostalo - obračun, obrazac, podnošenje i praćenje radimo mi."
         buttonLabel="Započni saradnju"
         buttonHref="/kontakt/"
       />

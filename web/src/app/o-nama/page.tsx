@@ -15,7 +15,7 @@ export default function ONamaPage() {
       <SectionHead
         eyebrow="O nama"
         as="h1"
-        title="33 godine u poreskoj materiji — 22 u Poreskoj upravi Srbije"
+        title="33 godine u poreskoj materiji od toga 22 u Poreskoj upravi Srbije"
         lead="Mi se refakcijom ne bavimo kao usputni posao. Praksu vodi stručnjak sa tri decenije iskustva upravo u poreskoj oblasti."
       />
 
@@ -93,7 +93,7 @@ export default function ONamaPage() {
 
       <CtaBand
         title="Vaš postupak vodi neko ko poznaje Poresku upravu iznutra"
-        text="Pošaljite podatke o firmi — proverićemo pravo i pokrenuti povraćaj."
+        text="Pošaljite podatke o firmi i proverićemo pravo i pokrenuti povraćaj."
         buttonLabel="Proveri moje pravo"
         buttonHref="/kontakt/"
       />

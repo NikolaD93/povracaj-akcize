@@ -15,7 +15,7 @@ export default function DokumentacijaPage() {
         eyebrow="Dokumentacija"
         as="h1"
         title="Šta je potrebno za zahtev"
-        lead="Uz zahtev se prilažu dokazi koji zavise od delatnosti. Ne brinite ako nešto nemate složeno — deo posla je upravo sređivanje ove dokumentacije."
+        lead="Uz zahtev se prilažu dokazi koji zavise od delatnosti. Ne brinite ako nešto nemate složeno, naš deo posla je upravo sređivanje ove dokumentacije."
       />
 
       <Grid cols={2}>
